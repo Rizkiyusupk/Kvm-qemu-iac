@@ -45,7 +45,8 @@ k8s/
 ├── playbook-join.yaml
 ├── playbook-kubernetes.yaml
 ├── playbook-pkg.yaml
-|__ playbook-swap.yaml
+├── playbook-swap.yaml
+├── playbook-install-terraform-bare-metal.yaml
 ```
 
 
