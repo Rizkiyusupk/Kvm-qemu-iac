@@ -1,1 +1,71 @@
-# Kvm-qemu-iac
+Topik berikutnya benar-benar menguras tenaga dan pikiran saya,sebelumnya saya sudah pernah mengatakan jika saya ingin sekali menggunakan terraform namun saya tidak punya uang untuk sewa cloud ataupun menggunakan proxmox karena laptop 2 saya itu tidak mumpuni secara spesifikasi,makanya saya dengan tekad dan semangat saya yang membara mencara cara agar saya bisa belajar terraform, akhirnya setelah beberapa hari kebingungan harus bagaimana saya menemunkan video lama dari adinusa di youtube membahas tentang Terraform dan QEMU/KVM,saya tonton videonya dan saya menemukan resource akun github dan docs di terraform blogspot,topik kali ini menggabungkan beberapa tools seperti kubernetes,ansible,terraform,jenkins,QEMU/KVM,libvirt sebagai api,dll. Tidak usah berlama-lama lagi langsung gaskannnn
+| Node        | CPU     | RAM  | Storage | Network                             |
+|-------------|---------|------|---------|------------------------------------ |
+| **Master**  | 1 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
+| **Worker 1**| 1 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
+| **Worker 2**| 1 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
+| **Jenkins** | 7 cores | 7GB  | 240GB   |                Wlan                 |
+
+
+![aihvns](/assets/images/kvm/ChatGPT Image Jun 15, 2026, 08_56_46 PM.png)
+
+### Reasoning
+Kenapa saya memilih menggunakan KVM/QEMU karena saya ingin sekali belajar terraform dan ada beberapa opsi seperti menggunakan cloud provider ataupun menggunakan proxmox,jika saya 
+menggunakancloud provider sperti aws,azure,gcp saya harus memmiliki banyak uang terlebih dahulu dan saya tidak punya banyak uang untuk sewa cloud , dan jika saya memilih opsi menggunakan 
+proxmox laptop 2 saya harus mempunya spesifikasi yang memumpuni sedangkan laptop 2 saya tidak memiliki spesifikasi yang mumpuni,dan jika saya menggunakan vmware biasa atau virtualbox 
+tidak ada docs yang kredibel ataupun developer yang proper mendokumentasikannya,jadinya saya menggunakan KVM/QEMU dan libvirt sebagai api.Libvirt memiliki Terraform provider aktif 
+(dmacvicar/libvirt), dan libvirt menyediakan API yang stabil untuk manajemen VM secara programatik. Ini juga teknologi yang sama digunakan di production environment OpenStack dan banyak 
+private cloud.
+
+### Structure Folder 
+
+Untuk structure folder yang digunakan dalam projek ini ada dua yang pertama itu untuk terraform dan yang kedua itu ansible
+
+```
+terraform-setup/
+├── .terraform/
+├── compute.tf
+├── main.tf
+├── prep-vm.tf
+├── terraform.tfstate
+└── terraform.tfstate.backup
+```
+
+dan yang kedua yaitu ansible
+
+```
+k8s/
+├── ansible.cfg
+├── inventory
+├── playbook-allow-port.yaml
+├── playbook-enable-service-baremetal.yaml
+├── playbook-ip.yaml
+├── playbook-install-java-baremetal.yaml
+├── playbook-install-jenkins-baremetal.yaml
+├── playbook-install-kubectl-baremetal.yaml
+├── playbook-join.yaml
+├── playbook-kubernetes.yaml
+├── playbook-pkg.yaml
+|__ playbook-swap.yaml
+```
+
+
+### Tools
+- **OS Laptop 1: Windows 11**
+- **OS Ubuntu  Vm** : 24.04 LTS 
+- **OS Ubuntu Jenkins Node (Bare Metal)** : 25.04
+- **VirtualBox** : 7.0.10
+- **Kubernetes** : 1.28
+- **Containerd** : 2.2.4
+- **Java** : 21
+- **Jenkins** : 2.56
+- **Network** : Flannel
+- **Ngrok** : 3.35.0
+- **Giy Bash** : 2.51.1
+- **Gitlab** : Web
+- **Vscode**
+- **Terraform** :  v1.15.6
+- **Ansible** : v2.18.1
+- **KVM** :  v 8.2.2
+- **QEMU** :  v 8.2.2
+- **LIBVIRT** : 10.0.0
