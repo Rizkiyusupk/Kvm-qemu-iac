@@ -7,7 +7,7 @@ Topik berikutnya benar-benar menguras tenaga dan pikiran saya,sebelumnya saya su
 | **Jenkins** | 7 cores | 7GB  | 240GB   |                Wlan                 |
 
 
-![aihvns](/assets/images/kvm/ChatGPT Image Jun 15, 2026, 08_56_46 PM.png)
+![aihvns](assets/images/kvm/ChatGPT Image Jun 15, 2026, 08_56_46 PM.png)
 
 ### Reasoning
 Kenapa saya memilih menggunakan KVM/QEMU karena saya ingin sekali belajar terraform dan ada beberapa opsi seperti menggunakan cloud provider ataupun menggunakan proxmox,jika saya 
