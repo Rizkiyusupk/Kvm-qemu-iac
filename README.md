@@ -47,6 +47,7 @@ k8s/
 ├── playbook-pkg.yaml
 ├── playbook-swap.yaml
 ├── playbook-install-terraform-bare-metal.yaml
+├── playbook-config.yaml
 ```
 
 
