@@ -1,5 +1,5 @@
 - name: install kubectl
-  hosts: Jenkins
+  hosts: your laptop2 ip
   become: yes
 
   tasks:

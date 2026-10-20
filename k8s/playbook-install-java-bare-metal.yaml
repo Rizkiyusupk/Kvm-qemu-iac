@@ -1,5 +1,5 @@
 - name: update package
-  hosts: Jenkins
+  hosts: your laptop2 ip
   become: yes
 
   tasks:
