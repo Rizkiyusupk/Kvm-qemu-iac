@@ -67,3 +67,11 @@ k8s/
 - **QEMU** : 8.2.2
 - **Libvirt** : 10.0.0
 
+
+### Catatan Kompatibilitas
+Dites pada: VM Ubuntu 22.04 (jammy, dari image cloud) dan node Jenkins Ubuntu 25.04.
+Kalau memakai rilis Ubuntu lain, alur playbook dan module-nya sama. Yang perlu
+disesuaikan hanya yang bergantung pada codename rilis:
+- HashiCorp: ubah `hashicorp_suite` bila suite rilis belum ada di repo mereka.
+- Docker: pastikan `download.docker.com` sudah punya suite untuk rilis tersebut.
+- Terraform: ganti URL image di `prep-vm.tf`.
