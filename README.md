@@ -1,9 +1,9 @@
 Topik berikutnya benar-benar menguras tenaga dan pikiran saya,sebelumnya saya sudah pernah mengatakan jika saya ingin sekali menggunakan terraform namun saya tidak punya uang untuk sewa cloud ataupun menggunakan proxmox karena laptop 2 saya itu tidak mumpuni secara spesifikasi,makanya saya dengan tekad dan semangat saya yang membara mencara cara agar saya bisa belajar terraform, akhirnya setelah beberapa hari kebingungan harus bagaimana saya menemunkan video lama dari adinusa di youtube membahas tentang Terraform dan QEMU/KVM,saya tonton videonya dan saya menemukan resource akun github dan docs di terraform blogspot,topik kali ini menggabungkan beberapa tools seperti kubernetes,ansible,terraform,jenkins,QEMU/KVM,libvirt sebagai api,dll. Tidak usah berlama-lama lagi langsung gaskannnn
 | Node        | CPU     | RAM  | Storage | Network                             |
 |-------------|---------|------|---------|------------------------------------ |
-| **Master**  | 2 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
-| **Worker 1**| 2 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
-| **Worker 2**| 2 cores | 2GB  | 10GB    | 1 Adapters   ( Static Ip )          |
+| **Master**  | 2 cores | 2GB  | 10GB    | 1 Adapters   ( DHCP Ip )            |
+| **Worker 1**| 2 cores | 2GB  | 10GB    | 1 Adapters   ( DHCP Ip )            |
+| **Worker 2**| 2 cores | 2GB  | 10GB    | 1 Adapters   ( DHCP Ip )            |
 | **Jenkins** | 7 cores | 7GB  | 240GB   |                Wlan                 |
 
 ![Alt text](asset/homelab.png)
@@ -50,21 +50,20 @@ k8s/
 
 
 ### Tools
-- **OS Laptop 1: Windows 11**
-- **OS Ubuntu  Vm** : 24.04 LTS 
+- **Wsl** : v0.2.1
+- **Terraform** : v1.16
+- **Docker** : v29.1.3
+- **OS Laptop 1** : Windows 11 Pro
+- **OS WSL2 Subsystem** : Ubuntu 24.04 LTS
+- **OS Ubuntu VM (K8s Nodes)** : 22.04 LTS
 - **OS Ubuntu Jenkins Node (Bare Metal)** : 25.04
-- **VirtualBox** : 7.0.10
 - **Kubernetes** : 1.28
 - **Containerd** : 2.2.4
 - **Java** : 21
 - **Jenkins** : 2.56
 - **Network** : Flannel
-- **Ngrok** : 3.35.0
-- **Giy Bash** : 2.51.1
-- **Gitlab** : Web
-- **Vscode**
-- **Terraform** :  v1.15.6
-- **Ansible** : v2.18.1
-- **KVM** :  v 8.2.2
-- **QEMU** :  v 8.2.2
-- **LIBVIRT** : 10.0.0
+- **Ansible** : v2.16+
+- **KVM** : 8.2.2
+- **QEMU** : 8.2.2
+- **Libvirt** : 10.0.0
+
